@@ -1,0 +1,6 @@
+{
+  "name": "Sixalert",
+  "tagline": "An alert system for TTC events",
+  "body": "[![Build Status](https://travis-ci.org/virgild/sixalert.svg?branch=master)](https://travis-ci.org/virgild/sixalert)\r\n\r\nsixalert\r\n========\r\n\r\nAn alert system for TTC events\r\n\r\nDescription\r\n-----------\r\n\r\nSixalert monitors the TTC alerts page and publishes the alert events.\r\n",
+  "note": "Don't delete this file! It's used internally to help with page regeneration."
+}
