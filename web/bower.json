@@ -1,0 +1,21 @@
+{
+  "name": "sixalert",
+  "description": "",
+  "main": "js/app.js",
+  "authors": [
+    "Virgil Dimaguila"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/virgild/sixalert",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}

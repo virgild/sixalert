@@ -1,0 +1,26 @@
+hash: 3d20a45b983af3b193b24e6eb6ed72bd3f036d8bef97d198253bfd5cad320b26
+updated: 2016-07-06T22:11:24.178770502-04:00
+imports:
+- name: github.com/gorilla/handlers
+  version: ee54c7b44cab12289237fb8631314790076e728b
+- name: github.com/jteeuwen/go-pkg-rss
+  version: 72391e6fd7384785fa3c46a405214a616d6c4a1d
+- name: github.com/jteeuwen/go-pkg-xmlx
+  version: 76f54ee73233b171ca9ee82ef837a1fc4d3809c0
+- name: github.com/tylerb/graceful
+  version: ecde8c8f16df93a994dda8936c8f60f0c26c28ab
+- name: github.com/urfave/cli
+  version: 1efa31f08b9333f1bd4882d61f9d668a70cd902e
+- name: goji.io
+  version: e1741450ad80d2837134e32ac7b1d0a7a2b11c51
+  subpackages:
+  - pat
+  - internal
+  - pattern
+- name: golang.org/x/net
+  version: b400c2eff1badec7022a8c8f5bea058b6315eed7
+  subpackages:
+  - websocket
+  - netutil
+  - context
+testImports: []

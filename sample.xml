@@ -1,0 +1,71 @@
+<?xml version="1.0"?>
+<rdf:RDF 
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns="http://purl.org/rss/1.0/">
+ 
+
+
+
+
+
+
+
+
+
+
+ <channel rdf:about="http://ttc.ca/Service_Advisories/index.jsp">
+   <title>TTC Service Alerts</title>
+   <link>http://ttc.ca/Service_Advisories/index.jsp</link>
+   <description>
+     TTC Service Alerts.
+   </description>
+   <image rdf:resource="http://ttc.ca/images/ttc-main-logo.gif" />
+   <items>
+     <rdf:Seq>
+<rdf:li rdf:resource="http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory" />
+<rdf:li rdf:resource="http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(2)" />
+<rdf:li rdf:resource="http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(3)" />
+<rdf:li rdf:resource="http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(4)" />
+
+     </rdf:Seq>
+   </items>
+ </channel>
+ 
+ <image rdf:about="http://ttc.ca/images/ttc-main-logo.gif">
+   <title>TTC.ca</title>
+   <link>http://ttc.ca</link>
+   <url>http://ttc.ca/images/ttc-main-logo.gif</url>
+ </image>
+ 
+<item rdf:about="http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory">
+<title>Service Advisory</title>
+<link>http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory</link>
+<description>
+This weekend Line 1 is closed between St Clair West and Downsview Stations due to scheduled track work. Shuttle buses operating.
+- Affecting: Subway/RT Lines: Yonge-University-Spadina</description>
+<dc:date>2016-06-18T05:45:04.227-04:00</dc:date></item>
+<item rdf:about="http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(2)">
+<title>Service Advisory (2)</title>
+<link>http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(2)</link>
+<description>
+97 Yonge route is bypassing NB Yonge Blvd stop due to construction at Yonge Blvd and Yonge. 
+- Affecting: Bus Routes: 97 Yonge</description>
+<dc:date>2016-06-18T07:43:17.493-04:00</dc:date></item>
+<item rdf:about="http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(3)">
+<title>Service Advisory (3)</title>
+<link>http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(3)</link>
+<description>
+Update: 89 Weston route is diverting both ways via Weston, Eglinton, Jane due to a Police investigation on Weston at Jane.
+- Affecting: Bus Routes: 89 Weston</description>
+<dc:date>2016-06-18T08:29:42.380-04:00</dc:date></item>
+<item rdf:about="http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(4)">
+<title>Service Advisory (4)</title>
+<link>http://ttc.ca/Service_Advisories/all_service_alerts.jsp#Service+Advisory+(4)</link>
+<description>
+ALL CLEAR: The delay at Spadina and Queens Quay has cleared. 510 Spadina route has returned to regular routing. 
+- Affecting: Streetcar Routes: 510 Spadina</description>
+<dc:date>2016-06-18T11:16:50.890-04:00</dc:date></item>
+
+ 
+</rdf:RDF>

@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<rdf:RDF 
+ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+ xmlns:dc="http://purl.org/dc/elements/1.1/"
+ xmlns="http://purl.org/rss/1.0/">
+ 
+
+
+
+
+
+
+
+
+
+
+ <channel rdf:about="http://ttc.ca/Service_Advisories/index.jsp">
+   <title>TTC Service Alerts</title>
+   <link>http://ttc.ca/Service_Advisories/index.jsp</link>
+   <description>
+     TTC Service Alerts.
+   </description>
+   <image rdf:resource="http://ttc.ca/images/ttc-main-logo.gif" />
+   <items>
+     <rdf:Seq>
+<rdf:li rdf:resource="http://ttc.ca/Service_Advisories/index.jsp#no_major_disruptions" />
+
+     </rdf:Seq>
+   </items>
+ </channel>
+ 
+ <image rdf:about="http://ttc.ca/images/ttc-main-logo.gif">
+   <title>TTC.ca</title>
+   <link>http://ttc.ca</link>
+   <url>http://ttc.ca/images/ttc-main-logo.gif</url>
+ </image>
+ 
+<item rdf:about="http://ttc.ca/Service_Advisories/index.jsp#no_major_disruptions">
+<title>There are no major disruptions at this time.</title>
+<link>http://ttc.ca/Service_Advisories/index.jsp</link>
+<description>
+There are no major disruptions at this time.</description>
+</item>
+
+ 
+</rdf:RDF>
