@@ -1,0 +1,24 @@
+---
+language: go
+
+env:
+  global:
+    - GOARCH=amd64
+    - GO15VENDOREXPERIMENT=1
+
+go:
+  - 1.6
+  - tip
+
+before_install:
+  - cd web && npm install
+  - npm run bower -- install
+  - curl https://glide.sh/get | sh
+  - glide install
+  - go get github.com/jteeuwen/go-bindata/...
+
+install:
+  - cd ${TRAVIS_BUILD_DIR} && make server/bindata.go
+
+script:
+  - cd ${TRAVIS_BUILD_DIR} && go test
