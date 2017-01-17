@@ -1,0 +1,78 @@
+# AUTO-GENERATED: Do not modify
+_lockFormatVersion = "0.1.0"
+
+[project]
+  name = "github.com/virgild/sixalert"
+  version = "0.1.0"
+  dependencies = [
+    "github.com/gorilla/handlers 0.1.0-head.155+m3a5767ca75ece5f7f1440b1d16975247f8d8b221",
+    "github.com/jteeuwen/go-pkg-rss 0.1.0-head.159+m72391e6fd7384785fa3c46a405214a616d6c4a1d",
+    "github.com/tylerb/graceful 1.2.14",
+    "github.com/urfave/cli 1.19.2-head.4+m8ef3805c9de2519805c3f060524b695bba2cd715",
+    "goji.io 0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd",
+    "goji.io/pat 0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd",
+    "golang.org/x/net/websocket 0.1.0-head.1098+mf2499483f923065a842d38eb4c7f1927e6fc6e6d"
+  ]
+
+[[packages]]
+  name = "github.com/gorilla/handlers"
+  version = "0.1.0-head.155+m3a5767ca75ece5f7f1440b1d16975247f8d8b221"
+  release = "github.com/gorilla/handlers#3a5767ca75ece5f7f1440b1d16975247f8d8b221"
+
+[[packages]]
+  name = "github.com/jteeuwen/go-pkg-rss"
+  version = "0.1.0-head.159+m72391e6fd7384785fa3c46a405214a616d6c4a1d"
+  release = "github.com/jteeuwen/go-pkg-rss#72391e6fd7384785fa3c46a405214a616d6c4a1d"
+  dependencies = [
+    "github.com/jteeuwen/go-pkg-xmlx 0.1.0-head.86+m76f54ee73233b171ca9ee82ef837a1fc4d3809c0"
+  ]
+
+[[packages]]
+  name = "github.com/jteeuwen/go-pkg-xmlx"
+  version = "0.1.0-head.86+m76f54ee73233b171ca9ee82ef837a1fc4d3809c0"
+  release = "github.com/jteeuwen/go-pkg-xmlx#76f54ee73233b171ca9ee82ef837a1fc4d3809c0"
+
+[[packages]]
+  name = "github.com/tylerb/graceful"
+  version = "1.2.14"
+  release = "github.com/tylerb/graceful#0e9129e9c6d47da90dc0c188b26bd7bb1dab53cd"
+
+[[packages]]
+  name = "github.com/urfave/cli"
+  version = "1.19.2-head.4+m8ef3805c9de2519805c3f060524b695bba2cd715"
+  release = "github.com/urfave/cli#8ef3805c9de2519805c3f060524b695bba2cd715"
+
+[[packages]]
+  name = "goji.io"
+  version = "0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  release = "goji.io#0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  dependencies = [
+    "goji.io/internal 0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  ]
+
+[[packages]]
+  name = "goji.io/internal"
+  version = "0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  release = "goji.io#0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+
+[[packages]]
+  name = "goji.io/pat"
+  version = "0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  release = "goji.io#0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  dependencies = [
+    "goji.io/internal 0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd",
+    "goji.io/pattern 0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  ]
+
+[[packages]]
+  name = "goji.io/pattern"
+  version = "0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  release = "goji.io#0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  dependencies = [
+    "goji.io/internal 0.1.0-head.51+m0d89ff54b2c18c9c4ba530e32496aef902d3c6cd"
+  ]
+
+[[packages]]
+  name = "golang.org/x/net/websocket"
+  version = "0.1.0-head.1098+mf2499483f923065a842d38eb4c7f1927e6fc6e6d"
+  release = "golang.org/x/net#f2499483f923065a842d38eb4c7f1927e6fc6e6d"
