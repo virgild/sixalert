@@ -5,7 +5,7 @@ import (
 
 	"github.com/urfave/cli"
 
-	"github.com/virgild/sixalert/server"
+	"github.com/virgild/sixalert/fetcher"
 )
 
 const TTC_RSS_URL = "https://ttc.ca/RSS/Service_Alerts/index.rss"
@@ -26,8 +26,7 @@ func main() {
 		return nil
 	}
 	app.Commands = []cli.Command{
-		server.ServerCommand(),
-		rssFetchCommand(TTC_RSS_URL),
+		fetcher.RssFetchCommand(TTC_RSS_URL),
 	}
 
 	app.Run(os.Args)

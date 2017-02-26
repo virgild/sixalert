@@ -1,4 +1,4 @@
-package main
+package fetcher
 
 import (
 	"fmt"
@@ -11,35 +11,35 @@ import (
 	"github.com/urfave/cli"
 )
 
-func rssFetchCommand(sourceURL string) cli.Command {
+func RssFetchCommand(sourceURL string) cli.Command {
 	cmd := cli.Command{
 		Name: "rss",
 		Action: func(c *cli.Context) error {
-			rssFetchAndPrint(sourceURL)
+			RssFetchAndPrint(sourceURL)
 			return nil
 		},
 	}
 	return cmd
 }
 
-func rssFetchAndPrint(sourceURL string) {
+func RssFetchAndPrint(sourceURL string) {
 	cacheTimeout := 10
 	enforceCacheLimit := true
-	f := &fetcher{}
+	f := &Fetcher{}
 	feed := rss.NewWithHandlers(cacheTimeout, enforceCacheLimit, f, f)
 	if err := feed.Fetch(sourceURL, nil); err != nil {
 		panic(err)
 	}
 }
 
-type fetcher struct {
+type Fetcher struct {
 }
 
-func (f *fetcher) ProcessChannels(feed *rss.Feed, newChannels []*rss.Channel) {
+func (f *Fetcher) ProcessChannels(feed *rss.Feed, newChannels []*rss.Channel) {
 
 }
 
-func (f *fetcher) ProcessItems(feed *rss.Feed, ch *rss.Channel, newItems []*rss.Item) {
+func (f *Fetcher) ProcessItems(feed *rss.Feed, ch *rss.Channel, newItems []*rss.Item) {
 	for index, item := range newItems {
 		alert, err := parseItem(item)
 		if err != nil {
