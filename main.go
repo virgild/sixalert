@@ -8,12 +8,10 @@ import (
 	"github.com/virgild/sixalert/fetcher"
 )
 
-const TTC_RSS_URL = "https://ttc.ca/RSS/Service_Alerts/index.rss"
-
 func main() {
 	app := cli.NewApp()
 	app.Name = "sixalert"
-	app.Version = "0.1.0"
+	app.Version = "0.1.1"
 	app.Authors = []cli.Author{
 		cli.Author{
 			Name:  "Virgil Dimaguila",
@@ -21,12 +19,14 @@ func main() {
 		},
 	}
 	app.Usage = "Runs the sixalert program"
+
 	app.Action = func(c *cli.Context) error {
 		cli.ShowAppHelp(c)
 		return nil
 	}
+
 	app.Commands = []cli.Command{
-		fetcher.RssFetchCommand(TTC_RSS_URL),
+		fetcher.RssFetchCommand(),
 	}
 
 	app.Run(os.Args)

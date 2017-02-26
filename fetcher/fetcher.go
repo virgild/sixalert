@@ -11,28 +11,55 @@ import (
 	"github.com/urfave/cli"
 )
 
-func RssFetchCommand(sourceURL string) cli.Command {
+const TTC_RSS_URL = "https://ttc.ca/RSS/Service_Alerts/index.rss"
+
+func RssFetchCommand() cli.Command {
 	cmd := cli.Command{
 		Name: "rss",
 		Action: func(c *cli.Context) error {
-			RssFetchAndPrint(sourceURL)
+			FetchAndPrint()
 			return nil
 		},
 	}
 	return cmd
 }
 
-func RssFetchAndPrint(sourceURL string) {
-	cacheTimeout := 10
-	enforceCacheLimit := true
-	f := &Fetcher{}
-	feed := rss.NewWithHandlers(cacheTimeout, enforceCacheLimit, f, f)
-	if err := feed.Fetch(sourceURL, nil); err != nil {
-		panic(err)
+func FetchAndPrint() {
+	fetcher := NewFetcher()
+	err := fetcher.FetchCurrent()
+	if err != nil {
+		fmt.Printf("Error: %v\n", err)
+	} else {
+		for n, alert := range fetcher.CurrentAlerts() {
+			fmt.Printf("%d. %s\n", n+1, alert)
+		}
 	}
 }
 
 type Fetcher struct {
+	sourceURL string
+	alerts    []*alert.TTCAlert
+}
+
+func NewFetcher() *Fetcher {
+	fetcher := &Fetcher{
+		sourceURL: TTC_RSS_URL,
+		alerts:    []*alert.TTCAlert{},
+	}
+
+	return fetcher
+}
+
+func (f *Fetcher) FetchCurrent() error {
+	cacheTimeout := 10
+	enforceCacheLimit := true
+	feed := rss.NewWithHandlers(cacheTimeout, enforceCacheLimit, nil, f)
+	err := feed.Fetch(f.sourceURL, nil)
+	return err
+}
+
+func (f *Fetcher) CurrentAlerts() []*alert.TTCAlert {
+	return f.alerts
 }
 
 func (f *Fetcher) ProcessChannels(feed *rss.Feed, newChannels []*rss.Channel) {
@@ -40,12 +67,13 @@ func (f *Fetcher) ProcessChannels(feed *rss.Feed, newChannels []*rss.Channel) {
 }
 
 func (f *Fetcher) ProcessItems(feed *rss.Feed, ch *rss.Channel, newItems []*rss.Item) {
-	for index, item := range newItems {
+	for _, item := range newItems {
 		alert, err := parseItem(item)
 		if err != nil {
 			panic(err)
+		} else {
+			f.alerts = append(f.alerts, alert)
 		}
-		fmt.Printf("%d: %s - (%s) %s\n", index+1, alert.Timestamp.Format("3:04pm"), alert.Affecting, alert.Content)
 	}
 }
 
