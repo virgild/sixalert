@@ -15,7 +15,7 @@ const TTC_RSS_URL = "https://ttc.ca/RSS/Service_Alerts/index.rss"
 
 func RssFetchCommand() cli.Command {
 	cmd := cli.Command{
-		Name: "rss",
+		Name: "fetch",
 		Action: func(c *cli.Context) error {
 			FetchAndPrint()
 			return nil
@@ -67,6 +67,7 @@ func (f *Fetcher) ProcessChannels(feed *rss.Feed, newChannels []*rss.Channel) {
 }
 
 func (f *Fetcher) ProcessItems(feed *rss.Feed, ch *rss.Channel, newItems []*rss.Item) {
+	f.alerts = []*alert.TTCAlert{}
 	for _, item := range newItems {
 		alert, err := parseItem(item)
 		if err != nil {
