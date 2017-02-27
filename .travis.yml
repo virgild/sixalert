@@ -8,17 +8,13 @@ env:
 
 go:
   - 1.6
+  - 1.7
+  - 1.8
   - tip
 
 before_install:
-  - cd web && npm install
-  - npm run bower -- install
   - curl https://glide.sh/get | sh
   - glide install
-  - go get github.com/jteeuwen/go-bindata/...
-
-install:
-  - cd ${TRAVIS_BUILD_DIR} && make server/bindata.go
 
 script:
   - cd ${TRAVIS_BUILD_DIR} && go test
