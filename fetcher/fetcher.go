@@ -8,21 +8,9 @@ import (
 	"github.com/virgild/sixalert/alert"
 
 	rss "github.com/jteeuwen/go-pkg-rss"
-	"github.com/urfave/cli"
 )
 
 const TTC_RSS_URL = "https://ttc.ca/RSS/Service_Alerts/index.rss"
-
-func RssFetchCommand() cli.Command {
-	cmd := cli.Command{
-		Name: "fetch",
-		Action: func(c *cli.Context) error {
-			FetchAndPrint()
-			return nil
-		},
-	}
-	return cmd
-}
 
 func FetchAndPrint() {
 	fetcher := NewFetcher()

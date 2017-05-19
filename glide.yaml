@@ -1,5 +1,4 @@
 package: github.com/virgild/sixalert
 import:
 - package: github.com/jteeuwen/go-pkg-rss
-- package: github.com/urfave/cli
-  version: ^1.19.1
+- package: github.com/spf13/cobra

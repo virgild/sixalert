@@ -1,33 +1,15 @@
 package main
 
 import (
+	"fmt"
 	"os"
 
-	"github.com/urfave/cli"
-
-	"github.com/virgild/sixalert/fetcher"
+	"github.com/virgild/sixalert/cmd"
 )
 
 func main() {
-	app := cli.NewApp()
-	app.Name = "sixalert"
-	app.Version = "0.1.1"
-	app.Authors = []cli.Author{
-		cli.Author{
-			Name:  "Virgil Dimaguila",
-			Email: "virgild@gmail.com",
-		},
+	if err := cmd.RootCmd.Execute(); err != nil {
+		fmt.Println(err)
+		os.Exit(1)
 	}
-	app.Usage = "Runs the sixalert program"
-
-	app.Action = func(c *cli.Context) error {
-		cli.ShowAppHelp(c)
-		return nil
-	}
-
-	app.Commands = []cli.Command{
-		fetcher.RssFetchCommand(),
-	}
-
-	app.Run(os.Args)
 }
