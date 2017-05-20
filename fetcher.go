@@ -1,11 +1,9 @@
-package fetcher
+package main
 
 import (
 	"fmt"
 	"strings"
 	"time"
-
-	"github.com/virgild/sixalert/alert"
 
 	rss "github.com/jteeuwen/go-pkg-rss"
 )
@@ -18,21 +16,21 @@ func FetchAndPrint() {
 	if err != nil {
 		fmt.Printf("Error: %v\n", err)
 	} else {
-		for n, alert := range fetcher.CurrentAlerts() {
-			fmt.Printf("%d. %s\n", n+1, alert)
+		for n, _alert := range fetcher.CurrentAlerts() {
+			fmt.Printf("%d. %s\n", n+1, _alert)
 		}
 	}
 }
 
 type Fetcher struct {
 	sourceURL string
-	alerts    []*alert.TTCAlert
+	alerts    []*TTCAlert
 }
 
 func NewFetcher() *Fetcher {
 	fetcher := &Fetcher{
 		sourceURL: TTC_RSS_URL,
-		alerts:    []*alert.TTCAlert{},
+		alerts:    []*TTCAlert{},
 	}
 
 	return fetcher
@@ -46,7 +44,7 @@ func (f *Fetcher) FetchCurrent() error {
 	return err
 }
 
-func (f *Fetcher) CurrentAlerts() []*alert.TTCAlert {
+func (f *Fetcher) CurrentAlerts() []*TTCAlert {
 	return f.alerts
 }
 
@@ -55,7 +53,7 @@ func (f *Fetcher) ProcessChannels(feed *rss.Feed, newChannels []*rss.Channel) {
 }
 
 func (f *Fetcher) ProcessItems(feed *rss.Feed, ch *rss.Channel, newItems []*rss.Item) {
-	f.alerts = []*alert.TTCAlert{}
+	f.alerts = []*TTCAlert{}
 	for _, item := range newItems {
 		alert, err := parseItem(item)
 		if err != nil {
@@ -66,7 +64,7 @@ func (f *Fetcher) ProcessItems(feed *rss.Feed, ch *rss.Channel, newItems []*rss.
 	}
 }
 
-func parseItem(item *rss.Item) (*alert.TTCAlert, error) {
+func parseItem(item *rss.Item) (*TTCAlert, error) {
 	rssExtensions := item.Extensions["http://purl.org/rss/1.0/"]
 	contentValue := rssExtensions["description"][0].Value
 	contentElements := strings.Split(contentValue, "\n- Affecting: ")
@@ -84,5 +82,5 @@ func parseItem(item *rss.Item) (*alert.TTCAlert, error) {
 		pubDate, err = time.Parse("2006-01-02T15:04:05.000-07:00", dcExtensions["date"][0].Value)
 	}
 
-	return alert.NewTTCAlert(contentText, affectingText, pubDate), err
+	return NewTTCAlert(contentText, affectingText, pubDate), err
 }

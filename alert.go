@@ -1,4 +1,4 @@
-package alert
+package main
 
 import (
 	"crypto/md5"
